@@ -1,19 +1,31 @@
-echo -e  "\e[33m====== Network check =======\e[0m"
-echo -e "\e[34m date : \e[0m" $(date "+%Y-%m-%d %T %Z")
-echo -e "\e[32mDNS Verification\e[0m"
+#!/bin/bash
+
+#colors variables
+
+ORANGE="\033[0;33m"
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+BLUE="\033[0;34m"
+NC="\033[0;0m"
+
+
+echo -e  "${ORANGE}====== Network check =======${NC}"
+echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
+echo -e "${GREEN}DNS Verification${NC}"
 ping -c 1  google.com
-echo -e "\e[32mInternert Connectivity Verification\e[0m"
+echo -e "${GREEN}Internert Connectivity Verification${NC}"
 ping -c 1 8.8.8.8
-echo -e "\e[32mTest HTTP/HTTPS\e[0m"
+echo -e "${GREEN}Test HTTP/HTTPS${NC}"
 curl -I https://www.google.com |head -1
-echo -e "\e[32mTraceroute\e[0m"
+echo -e "${GREEN}Traceroute${NC}"
 traceroute google.com
-echo -e "\e[32mNetwork UP interfaces \e[0m"
+echo -e "${GREEN}Network UP interfaces ${NC}"
 ifconfig |grep 'UP' 
-echo -e "\e[31mNetwork DOWN interfaces \e[0m"
+echo -e "${RED}Network DOWN interfaces ${NC}"
 ifconfig  |grep 'DOWN' 
-echo -e "\e[32mCables Verification \e[0m"
+echo -e "${GREEN}Cables Verification ${NC}"
 ip link show
-echo -e "\e[32mPrincipal Network interface \e[0m"
+echo -e "${GREEN}Principal Network interface ${NC}"
 ip addr show |grep 'ens33'
+
 
