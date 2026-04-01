@@ -8,7 +8,11 @@ RED="\033[0;31m"
 BLUE="\033[0;34m"
 NC="\033[0;0m"
 
+#log saving
+Log_File="../logs/log_$(date +%Y-%m-%d).txt"
+exec > >(tee "$Log_File") 2>&1
 
+#network check
 echo -e  "${ORANGE}====== Network check =======${NC}"
 echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
 echo -e "${GREEN}DNS Verification${NC}"
