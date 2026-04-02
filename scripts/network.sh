@@ -65,12 +65,21 @@ echo ""
 
 
 echo -e "${BLUE}Network UP interfaces ${NC}"
-ifconfig |grep 'UP' 
-echo -e "${RED}Network DOWN interfaces ${NC}"
-ifconfig  |grep 'DOWN' 
-echo -e "${BLUE}Cables Verification ${NC}"
-ip link show
-echo -e "${BLUE}Principal Network interface ${NC}"
-ip addr show |grep 'ens33'
+if ifconfig |grep 'UP'  ;then
+	echo -e "${GREEN}at least one interface is up${NC}"
+else
+	echo -e "${GREEN}NO interface is up${NC}"
+fi
+echo ""
+
+
+echo -e "${BLUE}Network DOWN interfaces ${NC}"
+if ifconfig  |grep 'DOWN';then
+	echo -e "${RED} at least one interface is down ${NC}"
+else
+	echo -e "${GREEN}No interface is down${NC}" 
+fi
+echo ""
+
 
 
