@@ -16,17 +16,24 @@ exec > >(tee "$Log_File") 2>&1
 #network check
 echo -e  "${ORANGE}====== Network check =======${NC}"
 echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
+echo ""
 
 echo -e "${BLUE}DNS Verification${NC}"
-ping -c 1  google.com
+if ping -c 1  google.com;then
+	echo -e "${GREEN}DNS functional (google.com resolved)${NC}"
+else 
+	echo -e "${RED}DNS is not funcctional"
+fi
+echo ""
 
-echo -e "${BLUE}Internet Connectivity Verification ans latency${NC}"
+echo -e "${BLUE}Internet Connectivity Verification and latency${NC}"
 if ping -c 1 8.8.8.8;then
 	Latency=$(ping -c 1 8.8.8.8 |tail -1|awk '{print $4}'|cut -d "/" -f 2 ) 
 	echo -e "${GREEN}google is reachable & latency=${Latency} ms${NC}"
 else
 	echo -e  "${RED}google is not reachable${NC}"
 fi
+echo ""
 echo -e "${BLUE}Test HTTP/HTTPS${NC}"
 curl -I https://www.google.com |head -1
 echo -e "${BLUE}Traceroute${NC}"
