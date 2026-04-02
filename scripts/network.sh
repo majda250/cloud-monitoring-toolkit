@@ -12,24 +12,32 @@ NC="\033[0;0m"
 Log_File="../logs/log_$(date +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
+
 #network check
 echo -e  "${ORANGE}====== Network check =======${NC}"
 echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
-echo -e "${GREEN}DNS Verification${NC}"
+
+echo -e "${BLUE}DNS Verification${NC}"
 ping -c 1  google.com
-echo -e "${GREEN}Internert Connectivity Verification${NC}"
-ping -c 1 8.8.8.8
-echo -e "${GREEN}Test HTTP/HTTPS${NC}"
+
+echo -e "${BLUE}Internet Connectivity Verification ans latency${NC}"
+if ping -c 1 8.8.8.8;then
+	Latency=$(ping -c 1 8.8.8.8 |tail -1|awk '{print $4}'|cut -d "/" -f 2 ) 
+	echo -e "${GREEN}google is reachable & latency=${Latency} ms${NC}"
+else
+	echo -e  "${RED}google is not reachable${NC}"
+fi
+echo -e "${BLUE}Test HTTP/HTTPS${NC}"
 curl -I https://www.google.com |head -1
-echo -e "${GREEN}Traceroute${NC}"
+echo -e "${BLUE}Traceroute${NC}"
 traceroute google.com
-echo -e "${GREEN}Network UP interfaces ${NC}"
+echo -e "${BLUE}Network UP interfaces ${NC}"
 ifconfig |grep 'UP' 
 echo -e "${RED}Network DOWN interfaces ${NC}"
 ifconfig  |grep 'DOWN' 
-echo -e "${GREEN}Cables Verification ${NC}"
+echo -e "${BLUE}Cables Verification ${NC}"
 ip link show
-echo -e "${GREEN}Principal Network interface ${NC}"
+echo -e "${BLUE}Principal Network interface ${NC}"
 ip addr show |grep 'ens33'
 
 
