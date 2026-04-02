@@ -19,7 +19,7 @@ echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
 echo ""
 
 echo -e "${BLUE}DNS Verification${NC}"
-if ping -c 1  google.com;then
+if ping -c 1  google.com &>/dev/null;then
 	echo -e "${GREEN}DNS functional (google.com resolved)${NC}"
 else 
 	echo -e "${RED}DNS is not funcctional"
@@ -27,15 +27,24 @@ fi
 echo ""
 
 echo -e "${BLUE}Internet Connectivity Verification and latency${NC}"
-if ping -c 1 8.8.8.8;then
+if ping -c 1 8.8.8.8 &>/dev/null;then
 	Latency=$(ping -c 1 8.8.8.8 |tail -1|awk '{print $4}'|cut -d "/" -f 2 ) 
 	echo -e "${GREEN}google is reachable & latency=${Latency} ms${NC}"
 else
 	echo -e  "${RED}google is not reachable${NC}"
 fi
 echo ""
+
 echo -e "${BLUE}Test HTTP/HTTPS${NC}"
-curl -I https://www.google.com |head -1
+HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -I https://www.google.com)
+if [ "$HTTP_CODE"="200" ];then
+	echo -e "${GREEN}HTTPS OK (Status:$HTTP_CODE) ${NC}"
+else
+	echo -e "${RED}HTTP/HTTPS Failure${NC}"
+fi 
+echo ""
+
+
 echo -e "${BLUE}Traceroute${NC}"
 traceroute google.com
 echo -e "${BLUE}Network UP interfaces ${NC}"
