@@ -16,6 +16,7 @@ exec > >(tee "$Log_File") 2>&1
 #network check
 echo -e  "${ORANGE}====== Network check =======${NC}"
 echo -e "${BLUE} date : ${NC}" $(date "+%Y-%m-%d %T %Z")
+echo -e "${BLUE}Hostname: $(hostname) ${NC}"
 echo ""
 
 echo -e "${BLUE}DNS Verification${NC}"
@@ -44,9 +45,25 @@ else
 fi 
 echo ""
 
+echo -e "${BLUE}IP Adress${NC}"
+IP_Adrr=$(curl -s ifconfig.me 2>/dev/null )
+if  [ -n IP_Addr ];then
+	echo -e "${GREEN}the IP Adress is : ${IP_Adrr} ${NC}"
+else
+	echo -e "${RED}Unable to retrieve pblic IP${NC}"
+fi
+echo ""
+
 
 echo -e "${BLUE}Traceroute${NC}"
-traceroute google.com
+if command -v traceroute &>/dev/null; then
+	traceroute  -n -m 5 8.8.8.8 2>/dev/null |head -3
+else
+	echo -e  "${RED} traceroute not installed ( sudo apt install traceroute)${NC}" 
+fi
+echo ""
+
+
 echo -e "${BLUE}Network UP interfaces ${NC}"
 ifconfig |grep 'UP' 
 echo -e "${RED}Network DOWN interfaces ${NC}"
