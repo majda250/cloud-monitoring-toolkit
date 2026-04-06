@@ -43,11 +43,18 @@ show_cpu(){
 	echo "User time - applications running : $( top -b -n 1 |grep %Cpu |awk '{ print $2 }' )%"
 	echo "System time - kernel operations : $( top -b -n 1 |grep %Cpu |awk '{ print $4 }' )%"
 	echo "Nice time - low priority process : $( top -b -n 1 |grep %Cpu |awk '{ print $6 }' )%"
-	id = $( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
-	echo "Idle time - CPU doing nothing : ${id}%"
-	if [id -gte 80]; then
-		echo -e "${GREEN} ${NC}"
 	
+	echo ""
+
+	idle = $( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
+	echo "Idle time - CPU doing nothing : ${id}%"
+	if [ "$idle" -lt 20]; then
+		echo -e "${RED}CPU overload: ${idle}% ${NC}"
+	elif ["$idle" -lt 50];then
+		echo -e "${ORANGE}high CPU USAGE : ${idle}%  ${NC}"
+	else 
+		echo -e "${GREEN}CPU idle: ${idle}% (healthy)${NC}"
+	fi	
 	echo ""
 }
 
