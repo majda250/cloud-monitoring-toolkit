@@ -13,22 +13,36 @@ echo ""
 
 #show disk status
 show_disque(){
-	echo -e "${GREEN}état du disque:${NC}"
+	echo -e "${GREEN}check disk usage:${NC}"
 	df -h
+	echo ""
 }
-echo ""
+
 
 #show Ram status
 show_ram(){
-	echo -e "${GREEN}mémoire libre:${NC}"
+	echo -e "${GREEN}check memory usage:${NC}"
 	free -h
+	echo ""
 }
-echo ""
+
 
 #show uptime
 show_uptime(){
-	echo -e "${GREEN}temps de fonctionnement du système:${NC}"
+	echo -e "${GREEN}check system uptime:${NC}"
 	uptime
+	echo ""
 }
-echo ""
 
+
+#show CPU status 
+show_cpu(){
+	echo -e "${GREEN}CPU usage:${NC}"
+	iostat
+	echo ""
+}
+
+show_disque
+show_ram
+show_uptime
+show_cpu
