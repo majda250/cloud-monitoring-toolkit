@@ -15,6 +15,8 @@ echo ""
 show_disque(){
 	echo -e "${GREEN}check disk usage:${NC}"
 	df -h
+	
+	
 	echo ""
 }
 
@@ -38,7 +40,14 @@ show_uptime(){
 #show CPU status 
 show_cpu(){
 	echo -e "${GREEN}CPU usage:${NC}"
-	iostat
+	echo "User time - applications running : $( top -b -n 1 |grep %Cpu |awk '{ print $2 }' )%"
+	echo "System time - kernel operations : $( top -b -n 1 |grep %Cpu |awk '{ print $4 }' )%"
+	echo "Nice time - low priority process : $( top -b -n 1 |grep %Cpu |awk '{ print $6 }' )%"
+	id = $( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
+	echo "Idle time - CPU doing nothing : ${id}%"
+	if [id -gte 80]; then
+		echo -e "${GREEN} ${NC}"
+	
 	echo ""
 }
 
