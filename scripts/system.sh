@@ -3,6 +3,9 @@
 #load shared utilities
 source ../utils/colors.sh
 
+#log_saving
+Log_File="../logs/system_logs/log_system_$(date +%Y-%m-%d).txt"
+exec > >(tee "$Log_File") 2>&1
 
 
 
@@ -47,10 +50,10 @@ show_cpu(){
 	echo ""
 
 	idle=$( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
-	echo "Idle time - CPU doing nothing : ${id}%"
-	if [ "$idle" -lt 20]; then
+	echo "Idle time - CPU doing nothing : ${idle}%"
+	if [ "$idle" -lt 20 ]; then
 		echo -e "${RED}CPU overload: ${idle}% ${NC}"
-	elif ["$idle" -lt 50];then
+	elif [ "$idle" -lt 50 ];then
 		echo -e "${ORANGE}high CPU USAGE : ${idle}%  ${NC}"
 	else 
 		echo -e "${GREEN}CPU idle: ${idle}% (healthy)${NC}"
@@ -58,7 +61,17 @@ show_cpu(){
 	echo ""
 }
 
+show_os(){
+	echo -e  "${GREEN}the os version is : $(lsb_release -a |grep "Description"|awk '{print $2 $3 $4}') ${NC}"
+	echo ""
+}
+
+show_swap(){
+
+}
+
 show_disque
 show_ram
 show_uptime
 show_cpu
+show_os

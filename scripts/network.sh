@@ -5,7 +5,7 @@ source ../utils/colors.sh
 
 
 #log saving
-Log_File="../logs/log_$(date +%Y-%m-%d).txt"
+Log_File="../logs/network_logs/log_network_$(date +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
 
