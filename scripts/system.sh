@@ -46,7 +46,7 @@ show_cpu(){
 	
 	echo ""
 
-	idle = $( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
+	idle=$( top -b -n 1 |grep %Cpu |awk '{ print $8 }' )
 	echo "Idle time - CPU doing nothing : ${id}%"
 	if [ "$idle" -lt 20]; then
 		echo -e "${RED}CPU overload: ${idle}% ${NC}"
