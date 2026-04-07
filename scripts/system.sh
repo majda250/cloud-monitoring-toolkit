@@ -1,10 +1,10 @@
 #!/bin/bash
 
-ORANGE="\033[0;33m"
-GREEN="\033[0;32m"
-RED="\033[0;31m"
-BLUE="\033[0;34m"
-NC="\033[0;0m"
+#load shared utilities
+source ../utils/colors.sh
+
+
+
 
 set -e 
 trap "echo erreur détectée" ERR  
