@@ -66,9 +66,7 @@ show_os(){
 	echo ""
 }
 
-show_swap(){
 
-}
 
 show_disque
 show_ram
