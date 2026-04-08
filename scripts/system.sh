@@ -41,6 +41,15 @@ show_uptime(){
 
 
 #show CPU status 
+show_nbrcpu(){
+	echo -e "${GREEN}the number of cpu is :${NC}"
+	grep -c ^processor /proc/cpuinfo
+	echo ""
+}
+
+
+
+
 show_cpu(){
 	echo -e "${GREEN}CPU usage:${NC}"
 	echo "User time - applications running : $( top -b -n 1 |grep %Cpu |awk '{ print $2 }' )%"
@@ -60,6 +69,9 @@ show_cpu(){
 	fi	
 	echo ""
 }
+
+
+
 
 show_os(){
 	echo -e  "${GREEN}the os version is :  ${NC} "
@@ -83,6 +95,6 @@ show_disque
 show_ram
 show_uptime
 show_cpu
+show_nbrcpu 
 show_os
 show_kernel
-
