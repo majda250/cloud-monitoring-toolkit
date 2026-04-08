@@ -19,9 +19,15 @@ show_disk_space(){
 	echo "" 
 }
 
-show_largest_files(){
-	echo -e  "${RED}The 20 largest files are :${NC}"
-	du -h / | sort -rh |tail -20 
+
+
+show_inodes(){
+	echo -e "${GREEN}inodes details (inode used, free and use percentage) are:${NC}"
+	df -i
+	echo ""
 }
+
+
+
 show_disk_space
-show_largest_files
+show_inodes
