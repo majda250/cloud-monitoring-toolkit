@@ -62,7 +62,18 @@ show_cpu(){
 }
 
 show_os(){
-	echo -e  "${GREEN}the os version is : $(lsb_release -a |grep "Description"|awk '{print $2 $3 $4}') ${NC}"
+	echo -e  "${GREEN}the os version is :  ${NC} "
+	cat /etc/os-release	
+	echo ""
+}
+
+show_kernel(){
+	echo -e  "${GREEN}the system type is : ${NC}"
+	if [ "$(uname)" = "Linux" ];then
+		echo "Welcome to Linux"
+	fi 
+	echo -e "${GREEN}the kernel version is : ${NC}"
+	uname -r
 	echo ""
 }
 
@@ -73,3 +84,5 @@ show_ram
 show_uptime
 show_cpu
 show_os
+show_kernel
+
