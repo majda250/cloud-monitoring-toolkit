@@ -1,0 +1,110 @@
+[0;33m====== Network check =======[0;0m
+[0;34m date : [0;0m 2026-04-01 15:07:04 +01
+[0;32mDNS Verification[0;0m
+PING google.com (172.217.171.46) 56(84) bytes of data.
+64 bytes from lcmadb-ac-in-f14.1e100.net (172.217.171.46): icmp_seq=1 ttl=128 time=29.0 ms
+
+--- google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 29.047/29.047/29.047/0.000 ms
+[0;32mInternert Connectivity Verification[0;0m
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=128 time=28.7 ms
+
+--- 8.8.8.8 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 28.734/28.734/28.734/0.000 ms
+[0;32mTest HTTP/HTTPS[0;0m
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+HTTP/2 200 
+[0;32mTraceroute[0;0m
+traceroute to google.com (172.217.171.46), 30 hops max, 60 byte packets
+ 1  _gateway (172.16.92.2)  0.599 ms  0.373 ms  0.283 ms
+ 2  flybox.home (192.168.1.1)  4.469 ms  6.899 ms  6.462 ms
+ 3  10.43.108.50 (10.43.108.50)  24.165 ms  23.923 ms  27.356 ms
+ 4  10.43.108.81 (10.43.108.81)  27.085 ms  26.702 ms  31.787 ms
+ 5  10.43.108.90 (10.43.108.90)  32.017 ms  31.673 ms  31.371 ms
+ 6  10.41.3.42 (10.41.3.42)  30.816 ms  21.578 ms  21.440 ms
+ 7  10.43.250.241 (10.43.250.241)  34.998 ms  40.020 ms  36.629 ms
+ 8  197.230.230.108 (197.230.230.108)  35.761 ms  35.556 ms  40.565 ms
+ 9  108.170.225.251 (108.170.225.251)  41.059 ms 74.125.245.171 (74.125.245.171)  40.877 ms  40.716 ms
+10  142.251.51.143 (142.251.51.143)  39.642 ms 142.251.51.141 (142.251.51.141)  40.961 ms  40.149 ms
+11  lcmadb-ac-in-f14.1e100.net (172.217.171.46)  39.216 ms  39.760 ms  38.473 ms
+[0;32mNetwork UP interfaces [0;0m
+br-73faed77cbc2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+br-9217d32c9f68: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+ens33: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+veth2087491: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth9203950: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth00c00b8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth1ecc3c7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth3a17076: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth55adb46: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth7b41675: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth7e0bab4: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth84efa2e: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth877ae63: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth8827aa2: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+veth8e60978: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vetha17eacd: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vetha2753c7: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vethc9cb6b5: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vethdeed0cc: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vethe14a76c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+vethf679be0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+[0;31mNetwork DOWN interfaces [0;0m
+[0;32mCables Verification [0;0m
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000
+    link/ether 00:0c:29:bc:b8:eb brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
+    link/ether 9e:05:aa:52:9e:a0 brd ff:ff:ff:ff:ff:ff
+4: br-73faed77cbc2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default 
+    link/ether 12:4a:88:dd:f1:0e brd ff:ff:ff:ff:ff:ff
+5: br-9217d32c9f68: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default 
+    link/ether de:0c:0c:92:92:6d brd ff:ff:ff:ff:ff:ff
+6: veth7b41675@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether ba:bc:fb:98:2c:a6 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+7: veth9203950@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 22:19:6b:1f:08:c6 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+8: veth8827aa2@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether 12:1a:e1:44:51:5a brd ff:ff:ff:ff:ff:ff link-netnsid 2
+9: veth8e60978@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 86:84:49:db:9a:94 brd ff:ff:ff:ff:ff:ff link-netnsid 3
+10: vethf679be0@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether 5a:4a:cd:f0:d9:fb brd ff:ff:ff:ff:ff:ff link-netnsid 4
+11: vetha2753c7@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 8e:2b:8a:ea:20:41 brd ff:ff:ff:ff:ff:ff link-netnsid 5
+12: vethdeed0cc@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether 9a:86:c2:de:7e:dc brd ff:ff:ff:ff:ff:ff link-netnsid 6
+13: veth3a17076@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether ba:90:2d:32:b4:a2 brd ff:ff:ff:ff:ff:ff link-netnsid 7
+14: veth84efa2e@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether fe:57:c9:55:c5:5a brd ff:ff:ff:ff:ff:ff link-netnsid 8
+15: vethc9cb6b5@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether ce:83:40:aa:72:6c brd ff:ff:ff:ff:ff:ff link-netnsid 9
+16: veth00c00b8@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether de:6e:6c:71:0f:cc brd ff:ff:ff:ff:ff:ff link-netnsid 10
+17: vethe14a76c@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 86:16:15:dd:88:a6 brd ff:ff:ff:ff:ff:ff link-netnsid 11
+18: veth1ecc3c7@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-73faed77cbc2 state UP mode DEFAULT group default 
+    link/ether 9a:28:a9:ff:d5:ea brd ff:ff:ff:ff:ff:ff link-netnsid 12
+19: veth7e0bab4@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 7a:ce:c9:07:4d:1f brd ff:ff:ff:ff:ff:ff link-netnsid 13
+20: veth2087491@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether 66:5c:ac:6d:c3:dd brd ff:ff:ff:ff:ff:ff link-netnsid 14
+21: veth877ae63@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether ca:0e:2b:03:63:2d brd ff:ff:ff:ff:ff:ff link-netnsid 15
+22: vetha17eacd@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether aa:e7:43:20:aa:ce brd ff:ff:ff:ff:ff:ff link-netnsid 16
+23: veth55adb46@if2: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-9217d32c9f68 state UP mode DEFAULT group default 
+    link/ether c2:9e:c6:80:8f:14 brd ff:ff:ff:ff:ff:ff link-netnsid 17
+[0;32mPrincipal Network interface [0;0m
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    inet 172.16.92.129/24 brd 172.16.92.255 scope global dynamic noprefixroute ens33

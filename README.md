@@ -1,138 +1,121 @@
-# cloud-monitoring-toolkit
-# ☁️ Cloud Monitoring & Automation Toolkit
+# Cloud Monitoring Toolkit
 
-Un outil en Bash pour surveiller, analyser et automatiser les tâches système et réseau dans un environnement cloud.
-
----
-
-## 🚀 Objectif
-
-Ce projet a pour but de fournir un **outil léger en ligne de commande** permettant de :
-
-* 📊 Surveiller l’état du système (CPU, RAM, disque)
-* 🌐 Tester la connectivité réseau
-* 📁 Automatiser les sauvegardes
-* 📜 Analyser les logs
-* ⏰ Planifier des tâches automatiques
+**Cloud Monitoring Toolkit** is a modular suite of monitoring scripts for cloud servers (AWS, Azure, GCP) or local machines.  
+It provides comprehensive monitoring of system performance, security, resources, alerts, and generates detailed reports.
 
 ---
 
-## 🛠️ Technologies utilisées
+## 📦 Features
 
-* Bash scripting
-* Commandes Linux (`grep`, `awk`, `sed`, `cron`)
-* Outils système (`df`, `free`, `top`, `ps`)
-* Réseau (`ping`, `curl`, `ssh`, `rsync`)
+- **System Monitoring** : CPU, RAM, swap, uptime, load average, OS version, kernel
+- **Storage Monitoring** : disk space, inodes, I/O, mount points, SMART health
+- **Network Monitoring** : connectivity, DNS, HTTP/HTTPS, latency, traceroute, interfaces
+- **Process Monitoring** : top CPU/memory processes, zombie processes, critical services
+- **Security Monitoring** : failed SSH attempts, logged-in users, recent sudo, open ports, firewall status
+- **Performance Testing** : CPU benchmark, memory speed, disk I/O, network speed, API response time
+- **Alert System** : customizable thresholds (CPU, RAM, disk, latency) + webhooks (Slack, Discord, Teams)
+- **Structured Logging** : log rotation, log levels (INFO/WARN/ERROR/DEBUG), JSON format
+- **Reports** : timestamped HTML/JSON/PDF reports
+- **Validation & Colors** : command existence checks, ANSI colored output
 
 ---
 
-## 📦 Installation
+## 📁 Project Structure
+
+cloud-monitoring-toolkit/
+├── README.md
+├── config.conf
+├── install_deps.sh
+├── monitor.sh
+├── modules/
+│ ├── network.sh
+│ ├── system.sh
+│ ├── storage.sh
+│ ├── processes.sh
+│ ├── security.sh
+│ └── performance.sh
+├── alerts/
+│ ├── alert.sh
+│ └── webhook.sh
+├── utils/
+│ ├── colors.sh
+│ ├── logging.sh
+│ └── validation.sh
+├── docs/
+│ ├── installation.md
+│ ├── usage.md
+│ └── api.md
+├── reports/
+└── logs/
+text
+
+---
+
+## ⚙️ Prerequisites
+
+- Linux (Ubuntu/Debian/CentOS/RHEL)
+- Bash 4+
+- Recommended tools: `sysbench`, `iostat`, `curl`, `traceroute`, `net-tools`, `bc`, `speedtest-cli`, `smartmontools`
+
+---
+
+## 🚀 Quick Installation
 
 ```bash
-git clone https://github.com/ton-username/cloud-toolkit.git
-cd cloud-toolkit
-chmod +x cloud_tool.sh
-```
+git clone git@github.com:majda250/cloud-monitoring-toolkit.git
+cd cloud-monitoring-toolkit
+chmod +x install_deps.sh monitor.sh
+sudo ./install_deps.sh
 
----
+    The installation script automatically checks for and installs missing dependencies.
 
-## ▶️ Utilisation
+⚙️ Configuration
 
-```bash
-./cloud_tool.sh [option]
-```
+Edit the config.conf file to set:
 
-### Options disponibles :
+    Alert thresholds (CPU, memory, disk, latency)
 
-| Option    | Description               |
-| --------- | ------------------------- |
-| --monitor | Affiche l’état du système |
-| --network | Test la connexion réseau  |
-| --backup  | Lance une sauvegarde      |
-| --logs    | Analyse les logs          |
-| --help    | Affiche l’aide            |
+    Webhooks (Slack, Discord, Teams)
 
----
+    Monitoring interval
 
-## 📊 Exemple
+    Cloud provider (AWS/Azure/GCP/none)
 
-```bash
-./cloud_tool.sh --monitor
-```
+    Log level and rotation settings
 
-Sortie :
+▶️ Usage
+Manual monitoring
+bash
 
-```
-CPU Usage: 23%
-Memory Usage: 45%
-Disk Usage: 60%
-```
+./monitor.sh
 
----
+Automated monitoring (crontab)
 
-## ⏰ Automatisation (Cron)
+Example: run every 5 minutes
+bash
 
-Exemple pour exécuter un backup chaque jour :
+*/5 * * * * /path/to/cloud-monitoring-toolkit/monitor.sh
 
-```bash
-crontab -e
-```
+Generate report only
 
-Ajouter :
+Reports are automatically created in reports/ after each execution.
+📊 Sample Output
 
-```
-0 2 * * * /chemin/vers/cloud_tool.sh --backup
-```
+    Logs: logs/monitor.log, logs/error.log, logs/alerts.log
 
----
+    Reports: reports/report_YYYY-MM-DD_HHhMM.html
 
-## 📁 Structure du projet
+    Webhook alerts: JSON payload sent to configured endpoints
 
-```
-cloud-toolkit/
-├── cloud_tool.sh
-├── logs/
-├── backups/
-├── config/
-└── README.md
-```
+📚 Full Documentation
 
----
+    Detailed Installation Guide
 
-## ⚠️ Gestion des erreurs
+    Usage Guide
 
-Le script inclut :
+    API & Integration
 
-* vérification des commandes
-* gestion des erreurs avec `trap`
-* codes de sortie (`$?`)
+🤝 Contributing
 
----
-
-## 💡 Améliorations futures
-
-* [ ] Interface interactive
-* [ ] Notifications (email / Slack)
-* [ ] Support multi-serveurs via SSH
-* [ ] Dashboard web
-
----
-
-## 🤝 Contribution
-
-Les contributions sont les bienvenues !
-N’hésite pas à ouvrir une issue ou une pull request.
-
----
-
-## 💻 Auteur
-
-Projet réalisé par Majda Bendifi
-Étudiante en Cloud Computing ☁️
-
----
-
-## ⭐ Support
-
-Si tu aimes ce projet, n’hésite pas à lui donner une étoile ⭐ sur GitHub !
-
+Contributions are welcome (new scripts, modules, documentation).
+Please follow the existing format and add tests when possible.
