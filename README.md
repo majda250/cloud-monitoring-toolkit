@@ -1,178 +1,199 @@
-# ☁️ Cloud Monitoring Toolkit
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Bash](https://img.shields.io/badge/Bash-4.0+-green.svg)](https://www.gnu.org/software/bash/)
-[![Linux](https://img.shields.io/badge/Linux-supported-success.svg)](https://www.linux.org/)
+🖥️ Cloud Monitoring Toolkit
 
-**Cloud Monitoring Toolkit** is a modular suite of monitoring scripts for cloud servers (AWS, Azure, GCP) and local machines. Monitor system performance, security, resources, receive alerts, and generate beautiful reports.
+Un toolkit de monitoring complet en Bash pour surveiller vos serveurs cloud (AWS, Azure, GCP) ou on-premise — réseau, système, stockage, processus, sécurité et performance.
+📋 Table des matières
 
----
+    Aperçu
+    Prérequis
+    Installation
+    Configuration
+    Utilisation
+    Modules
+    Alertes & Notifications
+    Rapports & Logs
+    Structure du projet
+    Licence
 
-## ✨ Features
+Aperçu
 
-| Category | Description |
-|----------|-------------|
-| 🖥️ **System** | CPU, RAM, swap, uptime, load average, OS, kernel |
-| 💾 **Storage** | Disk space, inodes, I/O, mount points, SMART health |
-| 🌐 **Network** | Connectivity, DNS, HTTP/HTTPS, latency, traceroute, interfaces |
-| ⚙️ **Processes** | Top CPU/memory processes, zombies, critical services |
-| 🔒 **Security** | Failed SSH attempts, logged users, sudo, open ports, firewall |
-| 🚀 **Performance** | CPU benchmark, memory speed, disk I/O, network speed, API response |
-| 🔔 **Alerts** | Custom thresholds + Webhooks (Slack, Discord, Teams) |
-| 📝 **Logging** | Log rotation, levels (INFO/WARN/ERROR/DEBUG), JSON format |
-| 📊 **Reports** | Timestamped HTML/JSON/PDF reports |
-| 🎨 **Colors** | ANSI colored output for better readability |
+cloud-monitoring-toolkit est un ensemble de scripts Bash modulaires permettant de surveiller en temps réel l'état d'un serveur ou d'une infrastructure cloud. Il couvre :
 
----
+    ✅ Connectivité réseau et latence
+    ✅ Usage CPU, RAM, swap et load average
+    ✅ Espace disque, I/O et santé des partitions
+    ✅ Processus actifs, zombies et services critiques
+    ✅ Tentatives d'intrusion, ports ouverts et firewall
+    ✅ Benchmarks de performance (CPU, disque, réseau)
+    ✅ Alertes automatiques via Slack, Discord, Teams ou webhook personnalisé
 
-## 📁 Project Structure
+Prérequis
 
-cloud-monitoring-toolkit/
-├── 📘 README.md
-├── ⚙️ config.conf
-├── 🔧 install_deps.sh
-├── 🚀 monitor.sh
-├── 📂 modules/
-│ ├── 🌐 network.sh
-│ ├── 🖥️ system.sh
-│ ├── 💾 storage.sh
-│ ├── ⚙️ processes.sh
-│ ├── 🔒 security.sh
-│ └── 🚀 performance.sh
-├── 🔔 alerts/
-│ ├── alert.sh
-│ └── webhook.sh
-├── 🛠️ utils/
-│ ├── colors.sh
-│ ├── logging.sh
-│ └── validation.sh
-├── 📚 docs/
-│ ├── installation.md
-│ ├── usage.md
-│ └── api.md
-├── 📁 reports/
-└── 📁 logs/
-text
+    Bash 4.0+
+    Linux (Ubuntu, Debian, CentOS, RHEL, ou compatible)
+    Accès sudo pour certains modules (sécurité, SMART)
+    Connexion Internet (pour les tests réseau et les webhooks)
 
----
+Outils utilisés (installés automatiquement via install_deps.sh) :
+Outil 	Usage
+curl 	Tests HTTP/HTTPS, envoi webhooks
+traceroute 	Diagnostic réseau
+net-tools 	Interfaces réseau
+sysbench 	Benchmark CPU et mémoire
+iostat 	Monitoring I/O disque
+bc 	Calculs arithmétiques dans les scripts
+Installation
+1. Cloner le dépôt
 
-## 📋 Prerequisites
-
-- 🐧 Linux (Ubuntu/Debian/CentOS/RHEL)
-- 📦 Bash 4+
-- 🔧 Recommended tools: `sysbench`, `iostat`, `curl`, `traceroute`, `net-tools`, `bc`, `speedtest-cli`, `smartmontools`
-
----
-
-## ⚡ Quick Installation
-
-```bash
-git clone https://github.com/your-username/cloud-monitoring-toolkit.git
+git clone https://github.com/votre-utilisateur/cloud-monitoring-toolkit.git
 cd cloud-monitoring-toolkit
-chmod +x install_deps.sh monitor.sh
-sudo ./install_deps.sh
 
-    💡 Tip: The installation script automatically checks and installs missing dependencies.
+2. Installer les dépendances
 
-⚙️ Configuration
+chmod +x install_deps.sh
+./install_deps.sh
 
-Edit config.conf to set:
-ini
+3. Rendre les scripts exécutables
 
-# Alert thresholds
-CPU_THRESHOLD=80
-MEMORY_THRESHOLD=90
-DISK_THRESHOLD=85
-LATENCY_THRESHOLD=100
+chmod +x monitor.sh
+chmod +x modules/*.sh alerts/*.sh utils/*.sh
 
-# Webhooks
-SLACK_WEBHOOK="https://hooks.slack.com/services/xxx"
-DISCORD_WEBHOOK="https://discord.com/api/webhooks/xxx"
+4. Configurer les seuils et alertes
 
-# Monitoring interval (seconds)
-INTERVAL=300
+Éditez le fichier config.conf selon votre environnement (voir section Configuration).
+Configuration
 
-# Cloud provider: aws, azure, gcp, none
-CLOUD_PROVIDER="none"
+Le fichier config.conf centralise tous les paramètres du toolkit :
 
-# Log level: INFO, WARN, ERROR, DEBUG
-LOG_LEVEL="INFO"
+# Seuils d'alerte
+CPU_THRESHOLD=85          # % d'usage CPU avant alerte
+MEM_THRESHOLD=90          # % d'usage RAM avant alerte
+DISK_THRESHOLD=80         # % d'espace disque avant alerte
+LATENCY_THRESHOLD=200     # ms de latence réseau avant alerte
 
-🚀 Usage
-Manual run
-bash
+# Fournisseur cloud
+CLOUD_PROVIDER="AWS"      # AWS | Azure | GCP | none
+
+# Notifications
+WEBHOOK_URL="https://hooks.slack.com/services/XXX/YYY/ZZZ"
+ALERT_EMAIL="admin@example.com"
+
+# Intervalles
+MONITOR_INTERVAL=60       # secondes entre chaque cycle
+LOG_RETENTION_DAYS=30     # durée de conservation des logs
+
+# Niveau de log
+LOG_LEVEL="INFO"          # DEBUG | INFO | WARN | ERROR
+
+Utilisation
+Lancement manuel
 
 ./monitor.sh
 
-Automated monitoring (crontab)
+Monitoring continu via crontab
 
-Run every 5 minutes:
-bash
+# Toutes les 5 minutes
+*/5 * * * * /chemin/vers/cloud-monitoring-toolkit/monitor.sh >> /var/log/cloud-monitor.log 2>&1
 
-*/5 * * * * /home/user/cloud-monitoring-toolkit/monitor.sh
+Exécuter un module seul
 
-One-liner with custom config
-bash
+./modules/network.sh
+./modules/system.sh
+./modules/security.sh
 
-CONFIG_FILE=/path/to/custom.conf ./monitor.sh
+Générer uniquement un rapport
 
-📊 Sample Output
-bash
+./monitor.sh --report-only
 
-$ ./monitor.sh
+Modules
+Module 	Description
+network.sh 	Connectivité Internet, DNS, HTTP/HTTPS, latence, traceroute, IP locale/publique
+system.sh 	CPU, RAM, swap, uptime, load average (1/5/15 min), version OS et kernel
+storage.sh 	Espace disque par partition, inodes, I/O, plus gros dossiers, santé SMART
+processes.sh 	Top 5 processus CPU/RAM, zombies, nombre total, statut des services (SSH, Docker, Nginx, MySQL…)
+security.sh 	Connexions SSH échouées, utilisateurs connectés, sudo récents, ports ouverts, firewall
+performance.sh 	Benchmark CPU (sysbench), vitesse mémoire, I/O disque (dd), speedtest, latence API
+Alertes & Notifications
 
-[INFO] 2025-01-15 10:30:00 - Starting Cloud Monitoring Toolkit
-[INFO] 2025-01-15 10:30:01 - Loading configuration...
-[SUCCESS] 2025-01-15 10:30:01 - Config loaded successfully
+Le système d'alertes compare les valeurs collectées aux seuils définis dans config.conf.
+Niveaux d'alerte
 
-[INFO] 2025-01-15 10:30:02 - Running system module...
-✅ CPU: 23% | RAM: 45% | Uptime: 3d 2h
+    🟡 MINOR — Valeur proche du seuil (80–95 %)
+    🔴 CRITICAL — Valeur dépassant le seuil (> 95 %)
 
-[INFO] 2025-01-15 10:30:03 - Running network module...
-✅ Connectivity: OK | DNS: OK | Latency: 12ms
+Canaux supportés
 
-[WARN] 2025-01-15 10:30:05 - Disk usage above threshold (88% > 85%)
+    Slack — via Incoming Webhook
+    Discord — via Webhook bot
+    Microsoft Teams — via Connector
+    Webhook personnalisé — payload JSON configurable
 
-[SUCCESS] 2025-01-15 10:30:10 - Report generated: reports/report_20250115_103010.html
+Le module webhook.sh gère les tentatives de retry automatique en cas d'échec d'envoi.
+Rapports & Logs
+Rapports (reports/)
 
-[INFO] 2025-01-15 10:30:10 - Monitoring completed successfully
+Les rapports sont générés automatiquement à chaque cycle :
 
-📁 Generated Files
-Path	Description
-logs/monitor.log	All execution logs
-logs/error.log	Error messages only
-logs/alerts.log	Alert history
-reports/*.html	HTML reports
-reports/*.json	JSON reports
-reports/*.pdf	PDF reports (if configured)
-📚 Documentation
-Document	Description
-installation.md	Detailed installation guide
-usage.md	Usage examples and tips
-api.md	API for advanced integration
-🤝 Contributing
+    Format : HTML, JSON ou PDF (configurable)
+    Nommage : report_YYYY-MM-DD_HH-MM-SS.html
+    Archivage automatique des rapports anciens
 
-Contributions are welcome!
+Logs (logs/)
+Fichier 	Contenu
+monitor.log 	Logs d'exécution généraux
+error.log 	Erreurs et exceptions
+alerts.log 	Historique de toutes les alertes déclenchées
 
-    🍴 Fork the project
+La rotation automatique des logs est gérée par utils/logging.sh selon LOG_RETENTION_DAYS.
+Structure du projet
 
-    🌿 Create your branch (git checkout -b feature/amazing)
+cloud-monitoring-toolkit/
+├── README.md
+├── config.conf
+├── install_deps.sh
+├── monitor.sh
+├── modules/
+│   ├── network.sh
+│   ├── system.sh
+│   ├── storage.sh
+│   ├── processes.sh
+│   ├── security.sh
+│   └── performance.sh
+├── alerts/
+│   ├── alert.sh
+│   └── webhook.sh
+├── utils/
+│   ├── colors.sh
+│   ├── logging.sh
+│   └── validation.sh
+├── reports/       # Rapports générés (auto)
+├── logs/          # Fichiers de log (auto)
+└── docs/
+    ├── installation.md
+    ├── usage.md
+    └── api.md
 
-    💾 Commit your changes (git commit -m 'feat: add amazing feature')
+Flux d'exécution
 
-    📤 Push to the branch (git push origin feature/amazing)
+monitor.sh
+  └── charge config.conf
+  └── exécute modules/ (network → system → storage → processes → security → performance)
+        └── chaque module utilise utils/ (colors, logging, validation)
+        └── alert.sh vérifie les seuils après chaque module
+              └── si alerte → webhook.sh envoie la notification
+  └── génère le rapport dans reports/
+  └── tout est loggé dans logs/
 
-    🎉 Open a Pull Request
+Documentation
 
-📄 License
+La documentation complète est disponible dans le dossier docs/ :
 
-Distributed under the MIT License. See LICENSE file for more information.
-🙏 Acknowledgments
+    docs/installation.md — Guide d'installation détaillé et dépannage
+    docs/usage.md — Exemples d'utilisation et intégration crontab
+    docs/api.md — Fonctions exportables et intégration avancée
 
-    sysbench - CPU & memory benchmarking
+Licence
 
-    speedtest-cli - Network speed testing
+Ce projet est distribué sous licence MIT. Voir le fichier LICENSE pour plus de détails.
 
-    smartmontools - Disk health monitoring
-
-⭐ Star this repository if you find it useful!
+    Développé pour simplifier le monitoring d'infrastructures cloud et on-premise. Contributions bienvenues !
