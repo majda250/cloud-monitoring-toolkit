@@ -1,0 +1,51 @@
+[0;33m===== Surveillance du système =====[0;0m
+
+[0;32mcheck disk usage:[0;0m
+Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+tmpfs              397M    4,1M  393M   2% /run
+/dev/sda2           56G     43G   12G  80% /
+tmpfs              2,0G       0  2,0G   0% /dev/shm
+tmpfs              5,0M    8,0K  5,0M   1% /run/lock
+efivarfs           256K     63K  189K  25% /sys/firmware/efi/efivars
+/dev/sda1          952M    6,2M  945M   1% /boot/efi
+tmpfs              397M    120K  397M   1% /run/user/1000
+/dev/sr0           5,8G    5,8G     0 100% /media/bendifi/Ubuntu 24.04.1 LTS amd64
+
+[0;32mcheck memory usage:[0;0m
+               total       utilisé      libre     partagé tamp/cache   disponible
+Mem:           3,9Gi       3,0Gi       118Mi        26Mi       932Mi       935Mi
+Échange:       3,4Gi       2,1Gi       1,3Gi
+
+[0;32mcheck system uptime:[0;0m
+ 23:32:18 up  1:06,  1 user,  load average: 0,91, 2,59, 7,52
+
+[0;32mCPU usage:[0;0m
+User time - applications running : 20,8%
+System time - kernel operations : 22,2%
+Nice time - low priority process : 0,0%
+
+Idle time - CPU doing nothing : 76,9%
+./system.sh: ligne 54 : [: 76,9 : nombre entier attendu comme expression
+./system.sh: ligne 56 : [: 76,9 : nombre entier attendu comme expression
+[0;32mCPU idle: 76,9% (healthy)[0;0m
+
+[0;32mthe os version is :  [0;0m 
+PRETTY_NAME="Ubuntu 24.04.3 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.3 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+[0;32mthe system type is : [0;0m
+Welcome to Linux
+[0;32mthe kernel version is : [0;0m
+6.17.0-20-generic
+
