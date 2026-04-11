@@ -17,6 +17,14 @@ system_processes(){
 	echo ""
 }
 
+shell_jobs(){
+	echo -e "${GREEN}the shell jobs are :${NC}"
+	jobs
+	echo ""
+}
+
 
 terminal_processes
 system_processes
+shell_jobs
+
