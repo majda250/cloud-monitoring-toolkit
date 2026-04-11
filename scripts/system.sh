@@ -11,7 +11,7 @@ exec > >(tee "$Log_File") 2>&1
 
 set -e 
 trap "echo erreur détectée" ERR  
-echo -e  "${ORANGE}===== Surveillance du système =====${NC}"
+echo -e  "${ORANGE}===== System monitoring =====${NC}"
 echo ""
 
 #show disk status
