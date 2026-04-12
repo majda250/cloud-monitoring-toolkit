@@ -19,6 +19,11 @@ show_disk_space(){
 	echo "" 
 }
 
+show_partition_space(){
+	echo -e "${GREEN}Display partition usage ${NC}"
+	df -h | awk 'NR>1 {printf "Partition: %s |Total: %s |Utilisée: %s|Libre: %s \n", $1,$2,$3,$4}'
+
+}
 
 
 show_inodes(){
@@ -31,3 +36,4 @@ show_inodes(){
 
 show_disk_space
 show_inodes
+show_partition_space
