@@ -51,12 +51,32 @@ get_disk_usage_alerts(){
 }
 
 
+
+
+
 show_file_system_type(){
 	echo -e "${GREEN}The file system type of each partition is: ${NC}"
 	df -T | awk  -v orange="$ORANGE" -v NC="$NC" '
 	NR>1 {printf "%sPartition:%s%s | %sfile system type:%s %s\n", orange , NC ,$1 , orange,NC,$2}'
 	echo ""
 }
+
+
+show_inode_partition(){
+    echo -e "${GREEN}Inodes per partition are:${NC}"
+
+    df -i | awk -v ORANGE="$ORANGE" -v NC="$NC" '
+    NR>1 {
+        printf "%sPartition:%s %s | %sTotal inodes:%s %s | %sUsed inodes:%s %s | %sFree inodes:%s %s\n",
+            ORANGE, NC, $1,
+            ORANGE, NC, $2,
+            ORANGE, NC, $3,
+            ORANGE, NC, $4
+    }'
+    echo ""
+}
+
+
 
 
 
@@ -74,4 +94,4 @@ show_inodes
 show_partition_space
 get_disk_usage_alerts
 show_file_system_type
-
+show_inode_partition
