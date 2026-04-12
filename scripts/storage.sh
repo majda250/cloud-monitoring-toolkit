@@ -32,6 +32,7 @@ show_partition_space(){
 
 
 get_disk_usage_alerts(){
+    echo -e "${GREEN}disque usage alerts :${NC}"	
     df -B1 | awk -v RED="$RED" -v GREEN="$GREEN" -v NC="$NC" '
     NR>1 {
         usage = ($3/$2)*100
@@ -46,7 +47,19 @@ get_disk_usage_alerts(){
 
         printf "%s%s%s : %.2f%% [%s]\n", color, $1, NC, usage, status
     }'
+    echo ""
 }
+
+
+show_file_system_type(){
+	echo -e "${GREEN}The file system type of each partition is: ${NC}"
+	df -T | awk  -v orange="$ORANGE" -v NC="$NC" '
+	NR>1 {printf "%sPartition:%s%s | %sfile system type:%s %s\n", orange , NC ,$1 , orange,NC,$2}'
+	echo ""
+}
+
+
+
 
 show_inodes(){
 	echo -e "${GREEN}inodes details (inode used, free and use percentage) are:${NC}"
@@ -60,3 +73,5 @@ show_disk_space
 show_inodes
 show_partition_space
 get_disk_usage_alerts
+show_file_system_type
+
