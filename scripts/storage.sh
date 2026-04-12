@@ -76,7 +76,19 @@ show_inode_partition(){
     echo ""
 }
 
-
+check_inode_threshold(){
+	echo -e "${GREEN}The inods alert check${NC}"
+	df -i |awk -v RED="$RED" -v GREEN="${GREEN}" -v  NC="$NC" 'NR>1 {usage = $3/$2*100
+	if (usage > 80) {
+		color=RED
+		status="ALERT"
+	} else {
+		color=GREEN
+		status="OK"
+	}
+	printf("the partition inode usage is : %s %s %s %s [%s]\n", $1,color,usage,NC,status)
+	}'
+}
 
 
 
@@ -95,3 +107,4 @@ show_partition_space
 get_disk_usage_alerts
 show_file_system_type
 show_inode_partition
+check_inode_threshold
