@@ -1,0 +1,67 @@
+[0;33mstorage monitoring [0;0m
+
+
+[0;32mthe amount of disk space used and available is:[0;0m 
+Sys. de fichiers Taille Utilisé Dispo Uti% Monté sur
+tmpfs              397M    4,3M  393M   2% /run
+/dev/sda2           56G     42G   12G  78% /
+tmpfs              2,0G       0  2,0G   0% /dev/shm
+tmpfs              5,0M    8,0K  5,0M   1% /run/lock
+efivarfs           256K     63K  189K  25% /sys/firmware/efi/efivars
+/dev/sda1          952M    6,2M  945M   1% /boot/efi
+tmpfs              397M    124K  397M   1% /run/user/1000
+/dev/sr0           5,8G    5,8G     0 100% /media/bendifi/Ubuntu 24.04.1 LTS amd64
+
+./storage.sh: ligne 116: show_inodes : commande introuvable
+[0;32mDisplay partition usage [0;0m
+Partition: tmpfs |Total: 397M |Utilisée: 4,3M|Libre: 393M 
+Partition: /dev/sda2 |Total: 56G |Utilisée: 42G|Libre: 12G 
+Partition: tmpfs |Total: 2,0G |Utilisée: 0|Libre: 2,0G 
+Partition: tmpfs |Total: 5,0M |Utilisée: 8,0K|Libre: 5,0M 
+Partition: efivarfs |Total: 256K |Utilisée: 63K|Libre: 189K 
+Partition: /dev/sda1 |Total: 952M |Utilisée: 6,2M|Libre: 945M 
+Partition: tmpfs |Total: 397M |Utilisée: 124K|Libre: 397M 
+Partition: /dev/sr0 |Total: 5,8G |Utilisée: 5,8G|Libre: 0 
+
+[0;32mdisque usage alerts :[0;0m
+[0;32mtmpfs[0;0m : 1,07% [OK]
+[0;32m/dev/sda2[0;0m : 74,45% [OK]
+[0;32mtmpfs[0;0m : 0,00% [OK]
+[0;32mtmpfs[0;0m : 0,16% [OK]
+[0;32mefivarfs[0;0m : 24,39% [OK]
+[0;32m/dev/sda1[0;0m : 0,65% [OK]
+[0;32mtmpfs[0;0m : 0,03% [OK]
+[0;31m/dev/sr0[0;0m : 100,00% [ALERTE]
+
+[0;32mThe file system type of each partition is: [0;0m
+[0;33mPartition:[0;0mtmpfs | [0;33mfile system type:[0;0m tmpfs
+[0;33mPartition:[0;0m/dev/sda2 | [0;33mfile system type:[0;0m ext4
+[0;33mPartition:[0;0mtmpfs | [0;33mfile system type:[0;0m tmpfs
+[0;33mPartition:[0;0mtmpfs | [0;33mfile system type:[0;0m tmpfs
+[0;33mPartition:[0;0mefivarfs | [0;33mfile system type:[0;0m efivarfs
+[0;33mPartition:[0;0m/dev/sda1 | [0;33mfile system type:[0;0m vfat
+[0;33mPartition:[0;0mtmpfs | [0;33mfile system type:[0;0m tmpfs
+[0;33mPartition:[0;0m/dev/sr0 | [0;33mfile system type:[0;0m iso9660
+
+[0;32mInodes for partition are:[0;0m
+[0;33mPartition:[0;0m tmpfs | [0;33mTotal inodes:[0;0m 508063 | [0;33mUsed inodes:[0;0m 2012 | [0;33mFree inodes:[0;0m 506051
+[0;33mPartition:[0;0m /dev/sda2 | [0;33mTotal inodes:[0;0m 3736432 | [0;33mUsed inodes:[0;0m 880774 | [0;33mFree inodes:[0;0m 2855658
+[0;33mPartition:[0;0m tmpfs | [0;33mTotal inodes:[0;0m 508063 | [0;33mUsed inodes:[0;0m 1 | [0;33mFree inodes:[0;0m 508062
+[0;33mPartition:[0;0m tmpfs | [0;33mTotal inodes:[0;0m 508063 | [0;33mUsed inodes:[0;0m 5 | [0;33mFree inodes:[0;0m 508058
+[0;33mPartition:[0;0m efivarfs | [0;33mTotal inodes:[0;0m 0 | [0;33mUsed inodes:[0;0m 0 | [0;33mFree inodes:[0;0m 0
+[0;33mPartition:[0;0m /dev/sda1 | [0;33mTotal inodes:[0;0m 0 | [0;33mUsed inodes:[0;0m 0 | [0;33mFree inodes:[0;0m 0
+[0;33mPartition:[0;0m tmpfs | [0;33mTotal inodes:[0;0m 101612 | [0;33mUsed inodes:[0;0m 171 | [0;33mFree inodes:[0;0m 101441
+[0;33mPartition:[0;0m /dev/sr0 | [0;33mTotal inodes:[0;0m 0 | [0;33mUsed inodes:[0;0m 0 | [0;33mFree inodes:[0;0m 0
+
+[0;32mThe inods alert check[0;0m
+the partition  usage is : tmpfs its usage is :  [0;32m 0,396014 [0;0m [OK]
+the partition  usage is : /dev/sda2 its usage is :  [0;32m 23,5726 [0;0m [OK]
+the partition  usage is : tmpfs its usage is :  [0;32m 0,000196826 [0;0m [OK]
+the partition  usage is : tmpfs its usage is :  [0;32m 0,00098413 [0;0m [OK]
+the partition  usage is : efivarfs its usage is :  [0;32m -nan [0;0m [OK]
+the partition  usage is : /dev/sda1 its usage is :  [0;32m -nan [0;0m [OK]
+the partition  usage is : tmpfs its usage is :  [0;32m 0,168287 [0;0m [OK]
+the partition  usage is : /dev/sr0 its usage is :  [0;32m -nan [0;0m [OK]
+
+[0;32m the usage rate of the disk is :[0;0m
+the partition : sda usage : 2,46 [0;32m[normal disk usage][0;0m 

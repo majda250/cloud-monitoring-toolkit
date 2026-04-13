@@ -63,7 +63,7 @@ show_file_system_type(){
 
 
 show_inode_partition(){
-    echo -e "${GREEN}Inodes per partition are:${NC}"
+    echo -e "${GREEN}Inodes for partition are:${NC}"
 
     df -i | awk -v ORANGE="$ORANGE" -v NC="$NC" '
     NR>1 {
@@ -86,20 +86,31 @@ check_inode_threshold(){
 		color=GREEN
 		status="OK"
 	}
-	printf("the partition inode usage is : %s %s %s %s [%s]\n", $1,color,usage,NC,status)
+	printf("the partition  usage is : %s its usage is :  %s %s %s [%s]\n", $1,color,usage,NC,status)
 	}'
-}
-
-
-
-
-show_inodes(){
-	echo -e "${GREEN}inodes details (inode used, free and use percentage) are:${NC}"
-	df -i
 	echo ""
 }
 
 
+disk_usage_rate(){
+	echo -e "${GREEN} the usage rate of the disk is :${NC}"
+	iostat -x 1 1 | awk -v RED="$RED" -v GREEN="$GREEN" -v ORANGE="$ORANGE" -v NC="$NC" '
+	/^sd/{
+		usage = $NF
+
+		if ( usage == 0 ){
+			status = "inactive disk"
+			color = ORANGE
+		} else if ( usage > 0 && usage < 50 ){
+			status = "normal disk usage"
+			color = GREEN
+		}else {
+			status = "warning the disk started to be saturated"
+			color = RED
+		}
+		printf "the partition : %s usage : %s %s[%s]%s \n",$1, usage,color,status,NC
+}'
+}
 
 show_disk_space
 show_inodes
@@ -108,3 +119,4 @@ get_disk_usage_alerts
 show_file_system_type
 show_inode_partition
 check_inode_threshold
+disk_usage_rate
