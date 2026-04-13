@@ -112,6 +112,17 @@ disk_usage_rate(){
 }'
 }
 
+check_disk_latency(){
+	echo -e "${GREEN}the number of read/write operationsper second${NC}"
+	iostat -x 1 1 | awk '
+	/^Device/ {for (i=1;i<=$NF;i++) if ($i=="await"} col=i}
+	$1  
+
+
+
+}
+
+
 show_disk_space
 show_inodes
 show_partition_space
