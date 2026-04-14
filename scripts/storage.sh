@@ -113,21 +113,20 @@ disk_usage_rate(){
 }
 
 check_disk_latency(){
-	echo -e "${GREEN}the number of read/write operationsper second${NC}"
+	echo -e "${GREEN}the disk latency is : ${NC}"
 	iostat -x 1 1 | awk '
 	/^Device/ {for (i=1;i<=$NF;i++) if ($i=="await"} col=i}
-	$1  
+	$1 ~ /^(sd|nvme)/ {print $1,$(col)'}
+} 
 
 
-
-}
 
 
 show_disk_space
-show_inodes
 show_partition_space
 get_disk_usage_alerts
 show_file_system_type
 show_inode_partition
 check_inode_threshold
 disk_usage_rate
+check_disk_latency
