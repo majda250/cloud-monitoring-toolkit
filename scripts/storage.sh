@@ -112,15 +112,29 @@ disk_usage_rate(){
 }'
 }
 
+
+
 check_disk_latency(){
-	echo -e "${GREEN}the disk latency is : ${NC}"
-	iostat -x 1 1 | awk '
-	/^Device/ {for (i=1;i<=$NF;i++) if ($i=="await"} col=i}
-	$1 ~ /^(sd|nvme)/ {print $1,$(col)'}
-} 
+    echo -e "${GREEN}the disk latency is : ${NC}"
+    iostat -x 1 1 | awk '
+    /^Device/ {for (i=1; i<=NF; i++) if ($i=="await") col=i}
+    $1 ~ /^(sd|nvme)/ {printf "the disk partition is %s and latency is : %s:",$1 ,$col 
+}'
+}
 
 
 
+check_disk_latency1(){
+    echo -e "${GREEN}the disk latency is : ${NC}"
+    iostat -x 1 1 | awk '
+    /^Device/ {
+        for (i=1; i<=NF; i++)
+            if ($i=="await") col=i
+    }
+    $1 ~ /^(sd|nvme)/ {
+        printf "the disk partition is %s and latency is : %s\n", $1, $col
+    }'
+}
 
 show_disk_space
 show_partition_space
@@ -130,3 +144,4 @@ show_inode_partition
 check_inode_threshold
 disk_usage_rate
 check_disk_latency
+check_disk_latency1
