@@ -20,6 +20,8 @@ suspect_ports(){
 	echo ""
 }
 
+
+
 ssh_connexion(){
 	echo -e "${GREEN}succesful ssh Logins are:${NC}"
 	grep "Accepted" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
@@ -29,6 +31,16 @@ ssh_connexion(){
 	echo ""
 }
 
+
+
+Root_attempts(){
+	echo -e "${RED}root attemps connexion are : ${NC}"
+	grep "password attempts" /var/log/auth.log
+	echo ""
+}
+
+
 open_ports
 suspect_ports
 ssh_connexion
+Root_attempts
