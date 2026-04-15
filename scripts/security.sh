@@ -20,6 +20,15 @@ suspect_ports(){
 	echo ""
 }
 
+ssh_connexion(){
+	echo -e "${GREEN}succesful ssh Logins are:${NC}"
+	grep "Accepted" /var/log/auth.log
+	echo ""
+	echo -e "${RED}failed ssh Logins connexion are :${NC}"
+	grep "Failed passsword" /var/log/auth.log
+	echo ""
+}
 
 open_ports
 suspect_ports
+ssh_connexion
