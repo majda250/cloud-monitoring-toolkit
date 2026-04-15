@@ -13,8 +13,13 @@ open_ports(){
 	echo ""
 }
 
-
+suspect_ports(){
+	echo -e "${GREEN}Verification of suspect ports${NC}"
+	known_ports="22|80|443|3306"
+	ss -tulnp |grep -vE "(known_ports)" || echo "${GREEN}no suspoect ports${NC}"
+	echo ""
+}
 
 
 open_ports
-
+suspect_ports
