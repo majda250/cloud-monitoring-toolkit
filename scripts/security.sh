@@ -39,8 +39,14 @@ Root_attempts(){
 	echo ""
 }
 
+actual_connexion(){
+	echo -e "${GREEN}Currently logged in users: ${NC}"
+	who -a 
+	echo ""
+}
 
 open_ports
 suspect_ports
 ssh_connexion
 Root_attempts
+actual_connexion
