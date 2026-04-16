@@ -65,8 +65,19 @@ actual_connexion(){
 
 }
 
+
+
+check_last_boot(){
+	echo -e "${GREEN}Checking system boot information:${NC}"
+	last 
+	echo ""
+
+}
+
+
 open_ports
 suspect_ports
 ssh_connexion
 Root_attempts
 actual_connexion
+check_last_boot
