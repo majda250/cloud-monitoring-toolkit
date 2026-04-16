@@ -17,9 +17,9 @@ open_ports(){
 }
 
 suspect_ports(){
-	echo -e "${GREEN}Thos ports might be suspescious${NC}"
+	echo -e "${RED}Thos ports might be suspescious${NC}"
 	known_ports="22|80|443|3306"
-	ss -tulnp |grep -vE "(known_ports)" || echo "${GREEN}no suspoect ports${NC}"
+	ss -tulnp |grep -vE "($known_ports)" || echo "${GREEN}no suspoect ports${NC}"
 	echo ""
 }
 
@@ -30,7 +30,7 @@ ssh_connexion(){
 	grep "Accepted" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
 	echo ""
 	echo -e "${RED}failed ssh Logins connexion are :${NC}"
-	grep "Failed passsword" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
+	grep "Failed password" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
 	echo ""
 }
 
