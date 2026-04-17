@@ -75,9 +75,24 @@ check_last_boot(){
 }
 
 
+sudo_activity(){
+	echo -e "${GREEN}Checking sudo/root activities:${NC}"
+	grep "sudo" /var/log/auth.log | tail -n 10
+	echo ""
+}
+
+
+
 open_ports
 suspect_ports
 ssh_connexion
 Root_attempts
 actual_connexion
 check_last_boot
+sudo_activity
+
+
+users=$(who | awk '{print $1}' | sort -u | wc -l)
+cat <<EOF >  /tmp/security_metrics.prom
+connected_users $users
+EOF
