@@ -81,7 +81,11 @@ sudo_activity(){
 	echo ""
 }
 
-
+network_connections(){
+	echo -e "${GREEN}Active network connections:${NC}"
+	ss -tpn |grep ESTAB #ESTAB stand for established so it shows established connexions
+	echo ""
+}
 
 open_ports
 suspect_ports
@@ -90,6 +94,9 @@ Root_attempts
 actual_connexion
 check_last_boot
 sudo_activity
+network_connections
+
+
 
 
 users=$(who | awk '{print $1}' | sort -u | wc -l)
