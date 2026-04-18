@@ -18,8 +18,7 @@ open_ports(){
 
 suspect_ports(){
 	echo -e "${RED}Thos ports might be suspescious${NC}"
-	known_ports="22|80|443|3306"
-	ss -tulnp |grep -vE "($known_ports)" || echo "${GREEN}no suspoect ports${NC}"
+	ss -tulnp |awk 'NR>1 {print $5}' | cut -d: -f2 |sort -u
 	echo ""
 }
 
