@@ -95,7 +95,7 @@ network_connections(){
 
 system_users(){
 	echo -e "${GREEN}the system users are :${NC}"
-	cat /etc/passwd
+	cut -d: -f1 /etc/passwd
 	echo ""
 }
 
