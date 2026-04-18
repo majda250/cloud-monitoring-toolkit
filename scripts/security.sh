@@ -42,6 +42,8 @@ Root_attempts(){
 	echo ""
 }
 
+
+
 actual_connexion(){
 	echo -e "${GREEN}Currently logged in users: ${NC}"
 	who  
@@ -75,15 +77,26 @@ check_last_boot(){
 }
 
 
+
+
 sudo_activity(){
 	echo -e "${GREEN}Checking sudo/root activities:${NC}"
 	grep "sudo" /var/log/auth.log | tail -n 10
 	echo ""
 }
 
+
+
 network_connections(){
 	echo -e "${GREEN}Active network connections:${NC}"
 	ss -tpn |grep ESTAB #ESTAB stand for established so it shows established connexions
+	echo ""
+}
+
+
+system_users(){
+	echo -e "${GREEN}the system users are :${NC}"
+	cat /etc/passwd
 	echo ""
 }
 
@@ -95,7 +108,7 @@ actual_connexion
 check_last_boot
 sudo_activity
 network_connections
-
+system_users
 
 
 
