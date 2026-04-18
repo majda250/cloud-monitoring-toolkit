@@ -8,8 +8,9 @@ source ../utils/colors.sh
 Log_File="../logs/security_logs/security_log_$(date  +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
-
-
+handling_errors(){
+set -euo  pipefail
+}
 open_ports(){
 	echo -e "${RED}Open ports are:${NC}"
 	ss -tulnp
@@ -108,7 +109,7 @@ check_last_boot
 sudo_activity
 network_connections
 system_users
-
+handling_errors	
 
 
 users=$(who | awk '{print $1}' | sort -u | wc -l)
