@@ -7,3 +7,30 @@ source ../utils/colors.sh
 
 Log_File="../logs/performance_logs/performance_log_$(date  +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
+
+
+echo -e "${ORANGE}=== Beginning of VM test ===${NC}"
+
+
+system_info(){
+	echo -e "${GREEN}OS version : ${NC}"
+	uname -a
+	echo ""
+
+	echo -e "${GREEN}RAM disponible : ${NC}"
+	free -h
+	echo ""
+
+	echo -e "${GREEN}Disk free : ${NC}"
+	df -h
+	echo ""
+
+	echo -e  "${GREEN}Cpu detailled information (list Cpu) : ${NC}"
+	lscpu
+	echo ""
+
+}
+
+system_info
+
+
