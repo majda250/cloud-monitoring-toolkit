@@ -9,7 +9,7 @@ Log_File="../logs/security_logs/security_log_$(date  +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
 handling_errors(){
-set -euo  pipefail
+	set -euo  pipefail
 }
 open_ports(){
 	echo -e "${RED}Open ports are:${NC}"
