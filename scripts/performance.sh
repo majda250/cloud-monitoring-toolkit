@@ -10,11 +10,15 @@ exec > >(tee "$Log_File") 2>&1
 
 
 echo -e "${ORANGE}=== Beginning of VM test ===${NC}"
-
+echo ""
 
 system_info(){
+
+	uname -a 
+	echo ""
+
 	echo -e "${GREEN}OS version : ${NC}"
-	uname -a
+	cat /etc/os-release
 	echo ""
 
 	echo -e "${GREEN}RAM disponible : ${NC}"
@@ -30,6 +34,12 @@ system_info(){
 	echo ""
 
 }
+
+Test_cpu(){
+	echo -e 
+
+}
+
 
 system_info
 
