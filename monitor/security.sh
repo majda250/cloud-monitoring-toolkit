@@ -1,0 +1,118 @@
+#!/bin/bash
+
+#load common utilities
+source ../utils/colors.sh
+
+#save in a log directory
+
+Log_File="../logs/security_logs/security_log_$(date  +%Y-%m-%d).txt"
+exec > >(tee "$Log_File") 2>&1
+
+handling_errors(){
+	set -euo  pipefail
+}
+open_ports(){
+	echo -e "${RED}Open ports are:${NC}"
+	ss -tulnp
+	echo ""
+}
+
+suspect_ports(){
+	echo -e "${RED}Thos ports might be suspescious${NC}"
+	ss -tulnp |awk 'NR>1 {print $5}' | cut -d: -f2 |sort -u
+	echo ""
+}
+
+
+
+ssh_connexion(){
+	echo -e "${GREEN}succesful ssh Logins are:${NC}"
+	grep "Accepted" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
+	echo ""
+	echo -e "${RED}failed ssh Logins connexion are :${NC}"
+	grep "Failed password" /var/log/auth.log | awk '{print $1,$2,$3, "| User:",$9, "|IP:",$11 }'
+	echo ""
+}
+
+
+
+Root_attempts(){
+	echo -e "${RED}root attemps connexion are : ${NC}"
+	grep "password attempts" /var/log/auth.log
+	echo ""
+}
+
+
+
+actual_connexion(){
+	echo -e "${GREEN}Currently logged in users: ${NC}"
+	who  
+	echo ""
+
+	echo -e "${GREEN}the number of session is:${NC}"
+	who -a |wc -l
+	echo ""
+
+	echo -e "${GREEN}the numberof users is: ${NC}"
+	who | awk '{print $1}' | sort -u | wc -l
+	echo ""
+
+	echo  -e "${GREEN}System boot time: ${NC}"
+	who -b
+	echo "" 
+
+	echo -e  "${GREEN}System run state: ${NC}"
+	who -r
+	echo ""
+
+}
+
+
+
+check_last_boot(){
+	echo -e "${GREEN}Checking system boot information:${NC}"
+	last 
+	echo ""
+
+}
+
+
+
+
+sudo_activity(){
+	echo -e "${GREEN}Checking sudo/root activities:${NC}"
+	grep "sudo" /var/log/auth.log | tail -n 10
+	echo ""
+}
+
+
+
+network_connections(){
+	echo -e "${GREEN}Active network connections:${NC}"
+	ss -tpn |grep ESTAB #ESTAB stand for established so it shows established connexions
+	echo ""
+}
+
+
+system_users(){
+	echo -e "${GREEN}the system users are :${NC}"
+	cut -d: -f1 /etc/passwd
+	echo ""
+}
+
+open_ports
+suspect_ports
+ssh_connexion
+Root_attempts
+actual_connexion
+check_last_boot
+sudo_activity
+network_connections
+system_users
+handling_errors	
+
+
+users=$(who | awk '{print $1}' | sort -u | wc -l)
+cat <<EOF >  /tmp/security_metrics.prom
+connected_users $users
+EOF
