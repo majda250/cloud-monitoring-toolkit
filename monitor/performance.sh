@@ -1,11 +1,12 @@
 #!/bin/bash
 
 #load common utilities
-source ../utils/colors.sh
+SCRIPT_DIR=$(dirname "$0")
+source "$SCRIPT_DIR/../utils/colors.sh"
 
 #save in a log directory
 
-Log_File="../logs/performance_logs/performance_log_$(date  +%Y-%m-%d).txt"
+Log_File="$SCRIPT_DIR/../logs/performance_logs/performance_log_$(date  +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
 

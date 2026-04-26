@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #load shared utilities
-source ../utils/colors.sh
-
+SCRIPT_DIR=$(dirname "$0")
+source "$SCRIPT_DIR/../utils/colors.sh"
 
 #log saving
-Log_File="../logs/network_logs/log_network_$(date +%Y-%m-%d).txt"
+Log_File="$SCRIPT_DIR/../logs/network_logs/log_network_$(date +%Y-%m-%d).txt"
 exec > >(tee "$Log_File") 2>&1
 
 
