@@ -1,0 +1,309 @@
+[0;31mOpen ports are:[0;0m
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                  
+udp   UNCONN 0      0            0.0.0.0:39886      0.0.0.0:*                                            
+udp   UNCONN 0      0            0.0.0.0:5353       0.0.0.0:*                                            
+udp   UNCONN 0      0         127.0.0.54:53         0.0.0.0:*                                            
+udp   UNCONN 0      0      127.0.0.53%lo:53         0.0.0.0:*                                            
+udp   UNCONN 0      0               [::]:5353          [::]:*                                            
+udp   UNCONN 0      0               [::]:46475         [::]:*                                            
+tcp   LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*                                            
+tcp   LISTEN 0      511          0.0.0.0:80         0.0.0.0:*                                            
+tcp   LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3001       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3003       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3002       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3005       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3004       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:9000       0.0.0.0:*                                            
+tcp   LISTEN 0      4096       127.0.0.1:27017      0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:8080       0.0.0.0:*                                            
+tcp   LISTEN 0      100          0.0.0.0:1883       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:9870       0.0.0.0:*                                            
+tcp   LISTEN 0      4096       127.0.0.1:631        0.0.0.0:*                                            
+tcp   LISTEN 0      4096            [::]:22            [::]:*                                            
+tcp   LISTEN 0      4096               *:9100             *:*    users:(("node_exporter",pid=21096,fd=3))
+tcp   LISTEN 0      4096            [::]:3001          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3003          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3002          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3005          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3004          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:9000          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:8080          [::]:*                                            
+tcp   LISTEN 0      4096           [::1]:631           [::]:*                                            
+tcp   LISTEN 0      4096            [::]:9870          [::]:*                                            
+
+[0;31mThos ports might be suspescious[0;0m
+Netid State  Recv-Q Send-Q Local Address:Port  Peer Address:PortProcess                                  
+udp   UNCONN 0      0            0.0.0.0:39886      0.0.0.0:*                                            
+udp   UNCONN 0      0            0.0.0.0:5353       0.0.0.0:*                                            
+udp   UNCONN 0      0         127.0.0.54:53         0.0.0.0:*                                            
+udp   UNCONN 0      0      127.0.0.53%lo:53         0.0.0.0:*                                            
+udp   UNCONN 0      0               [::]:5353          [::]:*                                            
+udp   UNCONN 0      0               [::]:46475         [::]:*                                            
+tcp   LISTEN 0      4096   127.0.0.53%lo:53         0.0.0.0:*                                            
+tcp   LISTEN 0      4096      127.0.0.54:53         0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3001       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3003       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3002       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3005       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:3004       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:9000       0.0.0.0:*                                            
+tcp   LISTEN 0      4096       127.0.0.1:27017      0.0.0.0:*                                            
+tcp   LISTEN 0      100          0.0.0.0:1883       0.0.0.0:*                                            
+tcp   LISTEN 0      4096         0.0.0.0:9870       0.0.0.0:*                                            
+tcp   LISTEN 0      4096       127.0.0.1:631        0.0.0.0:*                                            
+tcp   LISTEN 0      4096               *:9100             *:*    users:(("node_exporter",pid=21096,fd=3))
+tcp   LISTEN 0      4096            [::]:3001          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3003          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3002          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3005          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:3004          [::]:*                                            
+tcp   LISTEN 0      4096            [::]:9000          [::]:*                                            
+tcp   LISTEN 0      4096           [::1]:631           [::]:*                                            
+tcp   LISTEN 0      4096            [::]:9870          [::]:*                                            
+
+[0;32msuccesful ssh Logins are:[0;0m
+
+[0;31mfailed ssh Logins connexion are :[0;0m
+
+[0;31mroot attemps connexion are : [0;0m
+2026-04-15T17:48:52.821605+01:00 bendifi-VMware20-1 sudo:  bendifi : 2 incorrect password attempts ; TTY=pts/0 ; PWD=/home/bendifi/cloud-monitoring-toolkit/scripts ; USER=root ; COMMAND=/usr/bin/su -
+2026-04-16T22:11:10.061429+01:00 bendifi-VMware20-1 sudo:  bendifi : 2 incorrect password attempts ; TTY=pts/0 ; PWD=/home/bendifi/cloud-monitoring-toolkit/scripts ; USER=root ; COMMAND=/usr/bin/apt update
+
+[0;32mCurrently logged in users: [0;0m
+bendifi  seat0        2026-04-17 18:52 (login screen)
+bendifi  tty2         2026-04-17 18:52 (tty2)
+
+[0;32mthe number of session is:[0;0m
+5
+
+[0;32mthe numberof users is: [0;0m
+1
+
+[0;32mSystem boot time: [0;0m
+         démarrage système 2026-04-17 18:51
+
+[0;32mSystem run state: [0;0m
+         niveau d'exécution 5 2026-04-17 18:52
+
+[0;32mChecking system boot information:[0;0m
+bendifi  tty2         tty2             Fri Apr 17 18:52   still logged in
+bendifi  seat0        login screen     Fri Apr 17 18:52   still logged in
+reboot   system boot  6.17.0-20-generi Fri Apr 17 18:51   still running
+bendifi  tty2         tty2             Thu Apr 16 20:45 - crash  (22:05)
+bendifi  seat0        login screen     Thu Apr 16 20:45 - crash  (22:06)
+reboot   system boot  6.17.0-20-generi Thu Apr 16 20:42   still running
+reboot   system boot  6.17.0-20-generi Thu Apr 16 18:46   still running
+bendifi  tty2         tty2             Wed Apr 15 16:25 - crash (1+02:21)
+bendifi  seat0        login screen     Wed Apr 15 16:25 - crash (1+02:21)
+reboot   system boot  6.17.0-20-generi Wed Apr 15 16:20   still running
+bendifi  tty2         tty2             Tue Apr 14 18:22 - crash  (21:58)
+bendifi  seat0        login screen     Tue Apr 14 18:22 - crash  (21:58)
+reboot   system boot  6.17.0-20-generi Tue Apr 14 18:21   still running
+bendifi  tty2         tty2             Mon Apr 13 18:08 - crash (1+00:12)
+bendifi  seat0        login screen     Mon Apr 13 18:08 - crash (1+00:12)
+reboot   system boot  6.17.0-20-generi Mon Apr 13 18:05   still running
+bendifi  tty2         tty2             Sun Apr 12 09:19 - crash (1+08:45)
+bendifi  seat0        login screen     Sun Apr 12 09:19 - crash (1+08:45)
+reboot   system boot  6.17.0-20-generi Sun Apr 12 09:16   still running
+bendifi  tty2         tty2             Sat Apr 11 11:14 - crash  (22:02)
+bendifi  seat0        login screen     Sat Apr 11 11:14 - crash  (22:02)
+reboot   system boot  6.17.0-20-generi Sat Apr 11 11:10   still running
+bendifi  tty2         tty2             Wed Apr  8 22:26 - crash (2+12:43)
+bendifi  seat0        login screen     Wed Apr  8 22:26 - crash (2+12:43)
+reboot   system boot  6.17.0-20-generi Wed Apr  8 22:26   still running
+bendifi  tty2         tty2             Wed Apr  8 22:24 - crash  (00:01)
+bendifi  seat0        login screen     Wed Apr  8 22:24 - crash  (00:01)
+reboot   system boot  6.17.0-20-generi Wed Apr  8 22:24   still running
+bendifi  tty2         tty2             Thu Apr  2 11:13 - crash (6+11:10)
+bendifi  seat0        login screen     Thu Apr  2 11:13 - crash (6+11:10)
+reboot   system boot  6.17.0-19-generi Thu Apr  2 11:13   still running
+bendifi  tty2         tty2             Tue Mar 31 10:31 - crash (2+00:41)
+bendifi  seat0        login screen     Tue Mar 31 10:31 - crash (2+00:41)
+reboot   system boot  6.17.0-14-generi Tue Mar 31 10:30   still running
+bendifi  tty2         tty2             Mon Mar 30 18:22 - crash  (16:07)
+bendifi  seat0        login screen     Mon Mar 30 18:22 - crash  (16:07)
+reboot   system boot  6.17.0-14-generi Mon Mar 30 18:19   still running
+bendifi  tty2         tty2             Sun Mar  8 13:51 - crash (22+03:28)
+bendifi  seat0        login screen     Sun Mar  8 13:51 - crash (22+03:28)
+reboot   system boot  6.17.0-14-generi Sun Mar  8 13:49   still running
+bendifi  tty2         tty2             Sun Mar  8 08:21 - crash  (05:28)
+bendifi  seat0        login screen     Sun Mar  8 08:21 - crash  (05:28)
+reboot   system boot  6.14.0-37-generi Sun Mar  8 08:19   still running
+bendifi  tty2         tty2             Thu Mar  5 12:23 - crash (2+19:56)
+bendifi  seat0        login screen     Thu Mar  5 12:23 - crash (2+19:56)
+reboot   system boot  6.14.0-37-generi Thu Mar  5 12:22   still running
+bendifi  tty2         tty2             Wed Mar  4 15:08 - crash  (21:13)
+bendifi  seat0        login screen     Wed Mar  4 15:08 - crash  (21:13)
+reboot   system boot  6.14.0-37-generi Wed Mar  4 15:05   still running
+bendifi  tty2         tty2             Tue Mar  3 08:02 - crash (1+07:02)
+bendifi  seat0        login screen     Tue Mar  3 08:02 - crash (1+07:02)
+reboot   system boot  6.14.0-37-generi Tue Mar  3 07:56   still running
+bendifi  tty2         tty2             Fri Feb 27 14:51 - crash (3+17:04)
+bendifi  seat0        login screen     Fri Feb 27 14:51 - crash (3+17:04)
+reboot   system boot  6.14.0-37-generi Fri Feb 27 14:50   still running
+bendifi  tty2         tty2             Sat Mar  7 02:00 - crash (-7+11:09)
+bendifi  seat0        login screen     Sat Mar  7 02:00 - crash (-7+11:09)
+reboot   system boot  6.14.0-37-generi Sat Mar  7 01:58   still running
+bendifi  tty2         tty2             Thu Jan 15 05:54 - crash (50+21:03)
+bendifi  seat0        login screen     Thu Jan 15 05:54 - crash (50+21:03)
+bendifi  tty2         tty2             Wed Jan 14 07:03 - 05:54  (22:50)
+bendifi  seat0        login screen     Wed Jan 14 07:03 - 05:54  (22:50)
+reboot   system boot  6.14.0-37-generi Wed Jan 14 07:02   still running
+bendifi  tty2         tty2             Wed Jan 14 07:00 - crash  (00:01)
+bendifi  seat0        login screen     Wed Jan 14 07:00 - crash  (00:01)
+reboot   system boot  6.14.0-37-generi Wed Jan 14 06:59   still running
+bendifi  tty2         tty2             Mon Jan 12 18:34 - crash (1+12:24)
+bendifi  seat0        login screen     Mon Jan 12 18:34 - crash (1+12:24)
+reboot   system boot  6.14.0-37-generi Mon Jan 12 18:32   still running
+bendifi  pts/1        172.16.92.1      Tue Jan  6 18:45 - 20:08  (01:22)
+bendifi  tty2         tty2             Tue Jan  6 17:06 - crash (6+01:25)
+bendifi  seat0        login screen     Tue Jan  6 17:06 - crash (6+01:25)
+reboot   system boot  6.14.0-37-generi Tue Jan  6 17:05   still running
+bendifi  tty2         tty2             Wed Dec 31 09:26 - crash (6+07:38)
+bendifi  seat0        login screen     Wed Dec 31 09:26 - crash (6+07:38)
+reboot   system boot  6.14.0-37-generi Wed Dec 31 09:18   still running
+reboot   system boot  6.14.0-37-generi Fri Dec 26 18:47   still running
+bendifi  tty2         tty2             Wed Dec 24 09:38 - crash (2+09:09)
+bendifi  seat0        login screen     Wed Dec 24 09:38 - crash (2+09:09)
+reboot   system boot  6.14.0-37-generi Wed Dec 24 09:25   still running
+bendifi  tty2         tty2             Mon Dec 22 10:08 - crash (1+23:17)
+bendifi  seat0        login screen     Mon Dec 22 10:08 - crash (1+23:17)
+reboot   system boot  6.14.0-37-generi Mon Dec 22 10:07   still running
+bendifi  tty2         tty2             Wed Dec 17 09:47 - crash (5+00:20)
+bendifi  seat0        login screen     Wed Dec 17 09:47 - crash (5+00:20)
+reboot   system boot  6.14.0-35-generi Wed Dec 17 09:46   still running
+bendifi  tty2         tty2             Tue Dec 16 18:16 - crash  (15:29)
+bendifi  seat0        login screen     Tue Dec 16 18:16 - crash  (15:29)
+reboot   system boot  6.14.0-35-generi Tue Dec 16 18:14   still running
+bendifi  tty2         tty2             Wed Dec 10 17:43 - crash (6+00:30)
+bendifi  seat0        login screen     Wed Dec 10 17:43 - crash (6+00:30)
+reboot   system boot  6.14.0-35-generi Wed Dec 10 17:40   still running
+bendifi  tty2         tty2             Wed Dec 10 17:31 - down   (00:07)
+bendifi  seat0        login screen     Wed Dec 10 17:31 - down   (00:07)
+reboot   system boot  6.14.0-35-generi Wed Dec 10 17:25 - 17:39  (00:13)
+bendifi  tty2         tty2             Wed Dec 10 17:19 - crash  (00:05)
+bendifi  seat0        login screen     Wed Dec 10 17:19 - crash  (00:05)
+reboot   system boot  6.14.0-35-generi Wed Dec 10 17:19 - 17:39  (00:20)
+bendifi  tty2         tty2             Sat Nov 15 12:28 - crash (25+04:50)
+bendifi  seat0        login screen     Sat Nov 15 12:28 - crash (25+04:50)
+reboot   system boot  6.14.0-35-generi Sat Nov 15 12:27 - 17:39 (25+05:11)
+bendifi  tty2         tty2             Fri Nov 14 20:57 - crash  (15:29)
+bendifi  seat0        login screen     Fri Nov 14 20:57 - crash  (15:29)
+reboot   system boot  6.14.0-33-generi Fri Nov 14 20:57 - 17:39 (25+20:42)
+bendifi  tty2         tty2             Tue Nov  4 11:41 - crash (10+09:15)
+bendifi  seat0        login screen     Tue Nov  4 11:41 - crash (10+09:15)
+reboot   system boot  6.14.0-33-generi Tue Nov  4 11:40 - 17:39 (36+05:58)
+bendifi  tty2         tty2             Tue Oct 28 11:37 - crash (7+00:02)
+bendifi  seat0        login screen     Tue Oct 28 11:37 - crash (7+00:02)
+reboot   system boot  6.11.0-26-generi Tue Oct 28 11:37 - 17:39 (43+06:01)
+bendifi  tty2         tty2             Tue Oct 28 11:28 - crash  (00:08)
+bendifi  seat0        login screen     Tue Oct 28 11:28 - crash  (00:08)
+reboot   system boot  6.11.0-26-generi Tue Oct 28 11:27 - 17:39 (43+06:12)
+bendifi  tty2         tty2             Sun Oct 26 03:37 - crash (2+07:49)
+bendifi  seat0        login screen     Sun Oct 26 03:37 - crash (2+07:49)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:37 - 17:39 (45+14:02)
+bendifi  tty2         tty2             Sun Oct 26 03:21 - crash  (00:15)
+bendifi  seat0        login screen     Sun Oct 26 03:21 - crash  (00:15)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:20 - 17:39 (45+14:18)
+majda    tty2         tty2             Sun Oct 26 03:19 - crash  (00:01)
+majda    seat0        login screen     Sun Oct 26 03:19 - crash  (00:01)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:18 - 17:39 (45+14:20)
+bendifi  tty2         tty2             Sun Oct 26 03:13 - crash  (00:05)
+bendifi  seat0        login screen     Sun Oct 26 03:13 - crash  (00:05)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:13 - 17:39 (45+14:26)
+mimo     tty2         tty2             Sun Oct 26 03:11 - crash  (00:01)
+mimo     seat0        login screen     Sun Oct 26 03:11 - crash  (00:01)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:10 - 17:39 (45+14:28)
+suduser1 tty2         tty2             Sun Oct 26 03:07 - crash  (00:03)
+suduser1 seat0        login screen     Sun Oct 26 03:07 - crash  (00:03)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 03:06 - 17:39 (45+14:32)
+majda    tty2         tty2             Sun Oct 26 02:59 - crash  (00:07)
+majda    seat0        login screen     Sun Oct 26 02:59 - crash  (00:07)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 02:58 - 17:39 (45+14:40)
+majda    tty2         tty2             Sun Oct 26 02:46 - crash  (00:12)
+majda    seat0        login screen     Sun Oct 26 02:46 - crash  (00:12)
+reboot   system boot  6.11.0-26-generi Sun Oct 26 02:46 - 17:39 (45+14:53)
+majda    tty2         tty2             Sat Oct 25 18:36 - crash  (08:09)
+majda    seat0        login screen     Sat Oct 25 18:36 - crash  (08:09)
+reboot   system boot  6.11.0-26-generi Sat Oct 25 18:35 - 17:39 (45+23:03)
+majda    tty2         tty2             Sun Oct 19 12:36 - crash (6+05:59)
+majda    seat0        login screen     Sun Oct 19 12:36 - crash (6+05:59)
+reboot   system boot  6.11.0-26-generi Sun Oct 19 12:35 - 17:39 (52+05:03)
+bendifi  tty2         tty2             Sat Jun  7 14:54 - crash (133+21:41)
+bendifi  seat0        login screen     Sat Jun  7 14:54 - crash (133+21:41)
+reboot   system boot  6.8.0-51-generic Sat Jun  7 14:53 - 17:39 (186+02:46)
+bendifi  tty2         tty2             Sat May 17 09:11 - crash (21+05:41)
+bendifi  seat0        login screen     Sat May 17 09:11 - crash (21+05:41)
+reboot   system boot  6.8.0-51-generic Sat May 17 09:06 - 17:39 (207+08:32)
+bendifi  tty3         tty3             Sat May 17 08:55 - crash  (00:10)
+bendifi  seat0        login screen     Sat May 17 08:55 - crash  (00:10)
+majda    tty2         tty2             Sat May 17 08:27 - crash  (00:38)
+majda    seat0        login screen     Sat May 17 08:27 - 08:55  (00:28)
+reboot   system boot  6.8.0-51-generic Sat May 17 08:24 - 17:39 (207+09:15)
+bendifi  tty2         tty2             Wed May 14 20:12 - crash (2+12:11)
+bendifi  seat0        login screen     Wed May 14 20:12 - crash (2+12:11)
+reboot   system boot  6.8.0-51-generic Wed May 14 20:11 - 17:39 (209+21:27)
+bendifi  tty2         tty2             Wed May 14 13:52 - crash  (06:19)
+bendifi  seat0        login screen     Wed May 14 13:52 - crash  (06:19)
+reboot   system boot  6.8.0-51-generic Wed May 14 13:51 - 17:39 (210+03:47)
+bendifi  tty2         tty2             Wed May 14 13:40 - crash  (00:11)
+bendifi  seat0        login screen     Wed May 14 13:40 - crash  (00:11)
+reboot   system boot  6.8.0-51-generic Wed May 14 13:40 - 17:39 (210+03:58)
+bendifi  tty2         tty2             Wed May 14 13:19 - down   (00:20)
+bendifi  seat0        login screen     Wed May 14 13:19 - down   (00:20)
+reboot   system boot  6.8.0-51-generic Wed May 14 13:19 - 13:40  (00:20)
+bendifi  tty2         tty2             Wed May 14 11:34 - crash  (01:45)
+bendifi  seat0        login screen     Wed May 14 11:34 - crash  (01:45)
+reboot   system boot  6.8.0-51-generic Wed May 14 11:33 - 13:40  (02:06)
+bendifi  tty2         tty2             Wed May 14 09:08 - crash  (02:24)
+bendifi  seat0        login screen     Wed May 14 09:08 - crash  (02:24)
+reboot   system boot  6.8.0-51-generic Wed May 14 09:07 - 13:40  (04:32)
+bendifi  tty2         tty2             Fri Apr 25 00:58 - crash (19+08:09)
+bendifi  seat0        login screen     Fri Apr 25 00:58 - crash (19+08:09)
+reboot   system boot  6.8.0-51-generic Fri Apr 25 00:57 - 13:40 (19+12:42)
+bendifi  tty2         tty2             Thu Mar  6 23:41 - crash (49+00:15)
+bendifi  seat0        login screen     Thu Mar  6 23:41 - crash (49+00:15)
+reboot   system boot  6.8.0-51-generic Thu Mar  6 23:41 - 13:40 (68+12:59)
+bendifi  tty2         tty2             Thu Dec 26 14:42 - crash (70+09:58)
+bendifi  seat0        login screen     Thu Dec 26 14:42 - crash (70+09:58)
+reboot   system boot  6.8.0-49-generic Thu Dec 26 14:35 - 13:40 (138+23:04)
+bendifi  tty2         tty2             Tue Dec 10 18:52 - crash (15+19:43)
+bendifi  seat0        login screen     Tue Dec 10 18:52 - crash (15+19:43)
+reboot   system boot  6.8.0-49-generic Tue Dec 10 18:51 - 13:40 (154+18:48)
+bendifi  tty2         tty2             Wed Dec  4 22:03 - crash (5+20:48)
+bendifi  seat0        login screen     Wed Dec  4 22:03 - crash (5+20:48)
+reboot   system boot  6.8.0-49-generic Wed Dec  4 22:02 - 13:40 (160+15:37)
+bendifi  tty2         tty2             Wed Dec  4 21:07 - crash  (00:54)
+bendifi  seat0        login screen     Wed Dec  4 21:07 - crash  (00:54)
+reboot   system boot  6.8.0-49-generic Thu Dec  5 22:26 - 13:40 (159+15:14)
+bendifi  tty2         tty2             Wed Nov 27 23:00 - crash (7+23:25)
+bendifi  seat0        login screen     Wed Nov 27 23:00 - crash (7+23:25)
+reboot   system boot  6.8.0-49-generic Wed Nov 27 22:59 - 13:40 (167+14:40)
+bendifi  tty2         tty2             Wed Nov 27 22:53 - crash  (00:06)
+bendifi  seat0        login screen     Wed Nov 27 22:53 - crash  (00:06)
+reboot   system boot  6.8.0-49-generic Wed Nov 27 22:52 - 13:40 (167+14:47)
+
+wtmp commence Wed Nov 27 22:52:39 2024
+
+[0;32mChecking sudo/root activities:[0;0m
+2026-04-17T19:54:00.278075+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session closed for user root
+2026-04-17T19:54:00.308607+01:00 bendifi-VMware20-1 sudo:  bendifi : TTY=pts/2 ; PWD=/home/bendifi ; USER=root ; COMMAND=/usr/bin/systemctl start grafana
+2026-04-17T19:54:00.310390+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by bendifi(uid=1000)
+2026-04-17T19:54:00.350370+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session closed for user root
+2026-04-17T19:57:13.435421+01:00 bendifi-VMware20-1 sudo:  bendifi : TTY=pts/2 ; PWD=/home/bendifi ; USER=root ; COMMAND=/usr/bin/apt install -y software-properties-common wget
+2026-04-17T19:57:13.441161+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by bendifi(uid=1000)
+2026-04-17T19:57:50.738230+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session closed for user root
+2026-04-17T19:57:50.776167+01:00 bendifi-VMware20-1 sudo:  bendifi : TTY=pts/2 ; PWD=/home/bendifi ; USER=root ; COMMAND=/usr/bin/gpg --dearmor -o /usr/share/keyrings/grafana.gpg
+2026-04-17T19:57:50.792771+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session opened for user root(uid=0) by bendifi(uid=1000)
+2026-04-17T19:57:59.022031+01:00 bendifi-VMware20-1 sudo: pam_unix(sudo:session): session closed for user root
+
+[0;32mActive network connections:[0;0m
+ESTAB 0      0      172.16.92.129:33448   34.107.243.93:443  users:(("firefox",pid=15311,fd=128))
+ESTAB 0      0      172.16.92.129:56794    104.18.39.21:443  users:(("firefox",pid=15311,fd=164))
+ESTAB 0      0      172.16.92.129:47040  216.58.204.165:443  users:(("firefox",pid=15311,fd=117))
+ESTAB 0      0      172.16.92.129:55660  172.217.20.227:443  users:(("firefox",pid=15311,fd=101))
+ESTAB 0      0      172.16.92.129:39862   216.58.206.10:443  users:(("firefox",pid=15311,fd=141))
+ESTAB 0      0      172.16.92.129:45934 142.251.140.238:443  users:(("firefox",pid=15311,fd=114))
+
