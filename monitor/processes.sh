@@ -2,6 +2,9 @@
 
 #load common utilities
 source ../utils/colors.sh
+SCRIPT_DIR=$(dirname "$0")
+source "$SCRIPT_DIR/../utils/colors.sh"
+
 
 echo -e "${ORANGE}===== Processes monitoring ====${NC}"
 echo ""
